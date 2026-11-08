@@ -1,0 +1,383 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: Geist, "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --color-kanbot-page: #11141c;
+  --color-kanbot-panel: #191c26;
+  --color-kanbot-raised: #1e222e;
+  --color-kanbot-hover: #252a37;
+  --color-kanbot-line: #2c3140;
+  --color-kanbot-line-strong: #62697a;
+  --color-kanbot-ink: #f4f4f5;
+  --color-kanbot-muted: #a1a1aa;
+  --color-kanbot-subtle: #888892;
+  --color-kanbot-accent: #9188f5;
+  --color-kanbot-accent-contrast: #151627;
+  --color-kanbot-canvas: #080809;
+  --color-kanbot-sidebar: #141722;
+  --color-kanbot-shell-sidebar: #141722;
+  --color-kanbot-shell-control: #1b1f2d;
+  --color-kanbot-shell-control-border: #3c4252;
+  --color-kanbot-auth-panel: #111113;
+  --color-kanbot-input: #10131c;
+  --color-kanbot-input-panel: #151923;
+  --color-kanbot-table-head: #191d28;
+  --color-kanbot-popover: #1b1f2b;
+  --color-kanbot-context: #252a37;
+  --color-kanbot-card-gradient-end: #1b1e28;
+  --color-kanbot-button: #252a36;
+  --color-kanbot-button-hover: #373d4d;
+  --color-kanbot-zinc-900: #18181b;
+  --color-kanbot-zinc-800: #27272a;
+  --color-kanbot-zinc-50: #fafafa;
+  --color-kanbot-zinc-100: #f4f4f5;
+  --color-kanbot-zinc-200: #e4e4e7;
+  --color-kanbot-zinc-300: #d4d4d8;
+  --color-kanbot-zinc-400: #a1a1aa;
+  --color-kanbot-zinc-500: #888892;
+  --color-kanbot-zinc-600: #a1a1aa;
+  --color-kanbot-highlighted: #ffffff;
+  --color-kanbot-zinc-border-500: #71717a;
+  --color-kanbot-zinc-border-700: #3f3f46;
+  --color-kanbot-zinc-border-800: #27272a;
+  --color-kanbot-legacy-line: #2e2e34;
+  --color-kanbot-legacy-line-strong: #34343a;
+  --color-kanbot-legacy-line-hover: #4a4a51;
+  --color-kanbot-auth-accent: #5146e5;
+  --color-kanbot-auth-accent-hover: #635bff;
+  --color-kanbot-auth-accent-border: #635bff;
+  --color-kanbot-auth-accent-border-hover: #817bff;
+  --color-kanbot-auth-button: #655bd7;
+  --color-kanbot-auth-button-contrast: #ffffff;
+  --color-kanbot-auth-button-hover: #746be5;
+  --color-kanbot-auth-focus: #8179d2;
+  --color-kanbot-auth-focus-outline: #aaa5e5;
+  --color-kanbot-auth-mutedaccent: #aaa5e5;
+  --color-kanbot-auth-link: #b5b0e5;
+  --color-kanbot-auth-link-hover: #cbc7ef;
+  --color-kanbot-danger-100: #fee2e2;
+  --color-kanbot-danger-200: #fecaca;
+  --color-kanbot-danger-300: #fca5a5;
+  --color-kanbot-danger-400: #f87171;
+  --color-kanbot-warning-100: #fef3c7;
+  --color-kanbot-warning-200: #fde68a;
+  --color-kanbot-warning-300: #fcd34d;
+  --color-kanbot-warning-400: #fbbf24;
+  --color-kanbot-success-100: #d1fae5;
+  --color-kanbot-success-200: #a7f3d0;
+  --color-kanbot-success-300: #6ee7b7;
+  --color-kanbot-violet-50: #faf5ff;
+  --color-kanbot-violet-100: #f5f3ff;
+  --color-kanbot-violet-200: #ddd6fe;
+  --color-kanbot-violet-300: #c4b5fd;
+  --color-kanbot-indigo-300: #a5b4fc;
+  --color-kanbot-sky-300: #7dd3fc;
+  --color-kanbot-rose-200: #fecdd3;
+  --color-kanbot-rose-300: #fda4af;
+  --color-kanbot-danger-solid-700: #b91c1c;
+  --color-kanbot-danger-solid-800: #991b1b;
+  --color-kanbot-danger-border-700: #b91c1c;
+  --color-kanbot-danger-border-900: #7f1d1d;
+  --color-kanbot-warning-border-800: #92400e;
+  --color-kanbot-warning-border-900: #78350f;
+  --color-kanbot-success-border-800: #065f46;
+  --color-kanbot-success-border-900: #064e3b;
+  --color-kanbot-indigo-border-800: #3730a3;
+  --color-kanbot-rose-border-800: #9f1239;
+  --color-kanbot-violet-border-300: #c4b5fd;
+  --color-kanbot-violet-border-400: #a78bfa;
+  --color-kanbot-danger-soft-20: rgb(69 10 10 / 20%);
+  --color-kanbot-danger-soft-30: rgb(69 10 10 / 30%);
+  --color-kanbot-danger-soft-40: rgb(69 10 10 / 40%);
+  --color-kanbot-danger-soft-50: rgb(69 10 10 / 50%);
+  --color-kanbot-danger-soft-70: rgb(69 10 10 / 70%);
+  --color-kanbot-danger-soft-strong: rgb(127 29 29 / 50%);
+  --color-kanbot-warning-soft-40: rgb(69 26 3 / 40%);
+  --color-kanbot-warning-soft-50: rgb(69 26 3 / 50%);
+  --color-kanbot-success-soft-40: rgb(2 44 34 / 40%);
+  --color-kanbot-success-soft-70: rgb(2 44 34 / 70%);
+  --color-kanbot-indigo-soft-40: rgb(30 27 75 / 40%);
+  --color-kanbot-rose-soft-50: rgb(76 5 25 / 50%);
+  --color-kanbot-violet-soft-10: rgb(167 139 250 / 10%);
+  --color-kanbot-violet-soft-15: rgb(139 92 246 / 15%);
+  --color-kanbot-violet-soft-strong: rgb(139 92 246 / 10%);
+  --color-kanbot-emerald-400: #34d399;
+  --color-kanbot-indigo-400: #818cf8;
+  --color-kanbot-violet-400: #a78bfa;
+  --color-kanbot-white-soft-10: rgb(255 255 255 / 10%);
+  --color-kanbot-white-soft-1: rgb(255 255 255 / 1.5%);
+  --color-kanbot-code-surface: rgb(0 0 0 / 30%);
+  --color-kanbot-overlay-70: rgb(0 0 0 / 70%);
+  --color-kanbot-overlay-50: rgb(0 0 0 / 50%);
+  --radius-panel: 0.75rem;
+  --spacing-page: 1.5rem;
+  --animate-kanbot-page-enter: kanbot-page-enter 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-kanbot-card-enter: kanbot-card-enter 560ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-kanbot-row-enter: kanbot-row-enter 400ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-kanbot-modal-enter: kanbot-modal-enter 360ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-kanbot-select-enter: kanbot-select-enter 240ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-kanbot-fade-in: kanbot-fade-in 280ms ease-out both;
+  --animate-kanbot-task-travel: kanbot-task-travel 3.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  --animate-kanbot-loading-progress: kanbot-loading-progress 2.2s ease-in-out infinite;
+  --animate-kanbot-toast-enter: kanbot-toast-enter 440ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  --background-image-kanbot-ambient: var(--kanbot-ambient-gradient);
+  --background-image-sidebar-glow: var(--kanbot-sidebar-gradient);
+
+  @keyframes kanbot-page-enter {
+    from { opacity: 0; transform: translateY(18px) scale(0.992); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes kanbot-card-enter {
+    from { opacity: 0; transform: translateY(16px) scale(0.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes kanbot-row-enter {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes kanbot-modal-enter {
+    from { opacity: 0; transform: translateY(14px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes kanbot-select-enter {
+    from { opacity: 0; transform: translateY(-3px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes kanbot-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes kanbot-task-travel {
+    0%, 8% { opacity: 1; transform: translateX(0); }
+    30%, 38% { opacity: 1; transform: translateX(75px); }
+    60%, 68% { opacity: 1; transform: translateX(150px); }
+    78% { opacity: 0; transform: translateX(150px); }
+    82% { opacity: 0; transform: translateX(0); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes kanbot-loading-progress {
+    0% { transform: translateX(-110%); }
+    55% { transform: translateX(110%); }
+    100% { transform: translateX(330%); }
+  }
+  @keyframes kanbot-toast-enter {
+    from { opacity: 0; transform: translateY(12px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+}
+
+:root {
+  --kanbot-ambient-gradient: radial-gradient(ellipse at 8% 4%, rgb(74 91 168 / 32%), transparent 52%), radial-gradient(ellipse at 50% 2%, rgb(35 112 120 / 25%), transparent 54%), radial-gradient(ellipse at 95% 28%, rgb(125 73 150 / 27%), transparent 50%), radial-gradient(ellipse at 74% 100%, rgb(161 83 107 / 21%), transparent 54%), radial-gradient(ellipse at 5% 88%, rgb(32 119 132 / 24%), transparent 52%);
+  --kanbot-auth-ambient-gradient: radial-gradient(ellipse at 8% 4%, rgb(74 91 168 / 18%), transparent 52%), radial-gradient(ellipse at 50% 2%, rgb(35 112 120 / 15%), transparent 54%), radial-gradient(ellipse at 95% 28%, rgb(125 73 150 / 16%), transparent 50%), radial-gradient(ellipse at 74% 100%, rgb(161 83 107 / 13%), transparent 54%), radial-gradient(ellipse at 5% 88%, rgb(32 119 132 / 15%), transparent 52%);
+  --kanbot-sidebar-gradient: radial-gradient(ellipse at 0% 0%, rgb(91 88 180 / 22%), transparent 58%), radial-gradient(ellipse at 100% 100%, rgb(37 120 111 / 16%), transparent 56%);
+  --kanbot-body-color: #080809;
+  --kanbot-focus-outline: #9188f5;
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/geist/sans/Geist-Variable.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("/fonts/ibm-plex-sans-arabic-regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("/fonts/ibm-plex-sans-arabic-medium.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("/fonts/ibm-plex-sans-arabic-semibold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "IBM Plex Sans Arabic";
+  src: url("/fonts/ibm-plex-sans-arabic-bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    color-scheme: dark;
+    font-family: Geist, "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  body {
+    min-width: min(320px, 100%);
+    min-height: 100vh;
+    margin: 0;
+    background: var(--kanbot-body-color);
+    color: #f4f4f5;
+    font-family: inherit;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--kanbot-focus-outline);
+    outline-offset: 2px;
+  }
+}
+
+/* Light palette: the components keep their Tailwind utilities and switch only the theme tokens. */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-kanbot-page: #edf0f4;
+  --color-kanbot-panel: #f7f8fa;
+  --color-kanbot-raised: #f0f2f6;
+  --color-kanbot-hover: #e6eaf0;
+  --color-kanbot-line: #d8dee7;
+  --color-kanbot-line-strong: #929baa;
+  --color-kanbot-ink: #283244;
+  --color-kanbot-muted: #5e6878;
+  --color-kanbot-subtle: #717b8a;
+  --color-kanbot-accent: #6e68ad;
+  --color-kanbot-accent-contrast: #ffffff;
+  --color-kanbot-canvas: #e9edf2;
+  --color-kanbot-sidebar: #f7f8fa;
+  --color-kanbot-shell-sidebar: #f7f8fa;
+  --color-kanbot-shell-control: #f0f2f6;
+  --color-kanbot-shell-control-border: #cbd2dc;
+  --color-kanbot-auth-panel: #f7f8fa;
+  --color-kanbot-input: #f0f2f6;
+  --color-kanbot-input-panel: #f3f5f8;
+  --color-kanbot-table-head: #eef1f5;
+  --color-kanbot-popover: #f6f7f9;
+  --color-kanbot-context: #e6eaf0;
+  --color-kanbot-card-gradient-end: #edf0f4;
+  --color-kanbot-button: #e8ebf0;
+  --color-kanbot-button-hover: #dfe4eb;
+  --color-kanbot-zinc-900: #e7eaf0;
+  --color-kanbot-zinc-800: #e7eaf0;
+  --color-kanbot-zinc-50: #283244;
+  --color-kanbot-zinc-100: #283244;
+  --color-kanbot-zinc-200: #323d50;
+  --color-kanbot-zinc-300: #5c6676;
+  --color-kanbot-zinc-400: #647083;
+  --color-kanbot-zinc-500: #717b8a;
+  --color-kanbot-zinc-600: #5e6878;
+  --color-kanbot-highlighted: #283244;
+  --color-kanbot-zinc-border-500: #aeb6c3;
+  --color-kanbot-zinc-border-700: #d2d8e0;
+  --color-kanbot-zinc-border-800: #d2d8e0;
+  --color-kanbot-legacy-line: #d2d8e0;
+  --color-kanbot-legacy-line-strong: #cbd2dc;
+  --color-kanbot-legacy-line-hover: #aeb6c3;
+  --color-kanbot-auth-accent: #6d67a3;
+  --color-kanbot-auth-accent-hover: #625d94;
+  --color-kanbot-auth-accent-border: #6d67a3;
+  --color-kanbot-auth-accent-border-hover: #7d77ad;
+  --color-kanbot-auth-button: #6d67ae;
+  --color-kanbot-auth-button-contrast: #ffffff;
+  --color-kanbot-auth-button-hover: #625b9e;
+  --color-kanbot-auth-focus: #6d67a3;
+  --color-kanbot-auth-focus-outline: #8b85bb;
+  --color-kanbot-auth-mutedaccent: #6e6a8a;
+  --color-kanbot-auth-link: #635e86;
+  --color-kanbot-auth-link-hover: #504c70;
+  --color-kanbot-danger-100: #a34f4b;
+  --color-kanbot-danger-200: #a34f4b;
+  --color-kanbot-danger-300: #a34f4b;
+  --color-kanbot-danger-400: #a34f4b;
+  --color-kanbot-warning-100: #86621e;
+  --color-kanbot-warning-200: #86621e;
+  --color-kanbot-warning-300: #86621e;
+  --color-kanbot-warning-400: #86621e;
+  --color-kanbot-success-100: #31745b;
+  --color-kanbot-success-200: #31745b;
+  --color-kanbot-success-300: #31745b;
+  --color-kanbot-violet-50: #625a9c;
+  --color-kanbot-violet-100: #625a9c;
+  --color-kanbot-violet-200: #625a9c;
+  --color-kanbot-violet-300: #625a9c;
+  --color-kanbot-indigo-300: #58619f;
+  --color-kanbot-sky-300: #28718a;
+  --color-kanbot-rose-200: #a24f63;
+  --color-kanbot-rose-300: #a24f63;
+  --color-kanbot-danger-solid-700: #a33d38;
+  --color-kanbot-danger-solid-800: #923632;
+  --color-kanbot-danger-border-700: #cc928c;
+  --color-kanbot-danger-border-900: #d9b1ac;
+  --color-kanbot-warning-border-800: #d7c59d;
+  --color-kanbot-warning-border-900: #d7c59d;
+  --color-kanbot-success-border-800: #b7d5c3;
+  --color-kanbot-success-border-900: #b7d5c3;
+  --color-kanbot-indigo-border-800: #c2c9e3;
+  --color-kanbot-rose-border-800: #e1c1c9;
+  --color-kanbot-violet-border-300: #d2cfee;
+  --color-kanbot-violet-border-400: #c0bbdf;
+  --color-kanbot-danger-soft-20: #f7e9e7;
+  --color-kanbot-danger-soft-30: #f7e9e7;
+  --color-kanbot-danger-soft-40: #f7e9e7;
+  --color-kanbot-danger-soft-50: #f7e9e7;
+  --color-kanbot-danger-soft-70: #f7e9e7;
+  --color-kanbot-danger-soft-strong: #f4e2df;
+  --color-kanbot-warning-soft-40: #f6f0df;
+  --color-kanbot-warning-soft-50: #f6f0df;
+  --color-kanbot-success-soft-40: #e8f1eb;
+  --color-kanbot-success-soft-70: #e8f1eb;
+  --color-kanbot-indigo-soft-40: #eaebf5;
+  --color-kanbot-rose-soft-50: #f6eaed;
+  --color-kanbot-violet-soft-10: #eeedf7;
+  --color-kanbot-violet-soft-15: #eeedf7;
+  --color-kanbot-violet-soft-strong: #eeedf7;
+  --color-kanbot-emerald-400: #3b8a68;
+  --color-kanbot-indigo-400: #757db5;
+  --color-kanbot-violet-400: #8279b3;
+  --color-kanbot-white-soft-10: rgb(40 50 68 / 8%);
+  --color-kanbot-white-soft-1: rgb(40 50 68 / 2%);
+  --color-kanbot-code-surface: rgb(40 50 68 / 7%);
+  --color-kanbot-overlay-70: rgb(49 57 69 / 24%);
+  --color-kanbot-overlay-50: rgb(49 57 69 / 15%);
+  --kanbot-body-color: #e9edf2;
+  --kanbot-focus-outline: #6e68ad;
+  --kanbot-auth-ambient-gradient: radial-gradient(ellipse at 8% 4%, rgb(129 142 217 / 5%), transparent 48%), radial-gradient(ellipse at 50% 2%, rgb(94 157 156 / 5%), transparent 48%), radial-gradient(ellipse at 95% 28%, rgb(170 132 184 / 5%), transparent 45%), radial-gradient(ellipse at 74% 100%, rgb(199 143 157 / 4%), transparent 48%), radial-gradient(ellipse at 5% 88%, rgb(105 169 176 / 5%), transparent 45%);
+  --kanbot-ambient-gradient: radial-gradient(ellipse at 8% 4%, rgb(129 142 217 / 8%), transparent 48%), radial-gradient(ellipse at 50% 2%, rgb(94 157 156 / 7%), transparent 48%), radial-gradient(ellipse at 95% 28%, rgb(170 132 184 / 7%), transparent 45%), radial-gradient(ellipse at 74% 100%, rgb(199 143 157 / 6%), transparent 48%), radial-gradient(ellipse at 5% 88%, rgb(105 169 176 / 7%), transparent 45%);
+  --kanbot-sidebar-gradient: radial-gradient(ellipse at 0% 0%, rgb(129 122 205 / 6%), transparent 58%), radial-gradient(ellipse at 100% 100%, rgb(104 166 154 / 5%), transparent 56%);
+}
+
+:root[data-theme="light"] body {
+  color: var(--color-kanbot-ink);
+}

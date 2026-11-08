@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/webp" href="/logos/kanbot-icon.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanbot</title>
+    <script>
+      try {
+        const theme = localStorage.getItem('kanbot-theme') === 'light' ? 'light' : 'dark';
+        const language = localStorage.getItem('kanbot-language') === 'ar' ? 'ar' : 'en';
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.lang = language;
+        document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+      } catch {}
+    </script>
+    <style>
+      :root {
+        color-scheme: dark;
+        --boot-page: #11141c;
+        --boot-panel: #191c26;
+        --boot-line: #2c3140;
+        --boot-ink: #f4f4f5;
+        --boot-muted: #a1a1aa;
+        --boot-accent: #9188f5;
+        --boot-ambient: radial-gradient(ellipse at 10% 0%, rgb(74 91 168 / 18%), transparent 48%), radial-gradient(ellipse at 92% 92%, rgb(125 73 150 / 14%), transparent 48%);
+      }
+      :root[data-theme="light"] {
+        color-scheme: light;
+        --boot-page: #f1f0eb;
+        --boot-panel: #faf9f5;
+        --boot-line: #d8d4ca;
+        --boot-ink: #292820;
+        --boot-muted: #5e5b53;
+        --boot-accent: #5e54c0;
+        --boot-ambient: radial-gradient(ellipse at 10% 0%, rgb(129 142 217 / 12%), transparent 48%), radial-gradient(ellipse at 92% 92%, rgb(170 132 184 / 10%), transparent 48%);
+      }
+      html, body { min-height: 100%; margin: 0; background: var(--boot-page); }
+      #root { min-height: 100vh; }
+      #kanbot-boot {
+        position: relative;
+        display: grid;
+        min-height: 100vh;
+        place-items: center;
+        overflow: hidden;
+        padding: 40px 20px;
+        background: var(--boot-ambient), var(--boot-page);
+        color: var(--boot-ink);
+        font-family: Geist, "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+        text-align: center;
+      }
+      #kanbot-boot * { box-sizing: border-box; }
+      .kanbot-boot-content { display: flex; width: 100%; flex-direction: column; align-items: center; }
+      .kanbot-boot-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        border: 1px solid var(--boot-line);
+        border-radius: 16px;
+        background: color-mix(in srgb, var(--boot-panel) 88%, transparent);
+        padding: 12px 16px;
+        box-shadow: 0 18px 48px rgb(0 0 0 / 12%);
+      }
+      .kanbot-boot-brand img { display: block; width: 44px; height: 44px; border-radius: 12px; }
+      .kanbot-boot-brand strong { font-size: 20px; letter-spacing: -0.03em; }
+      .kanbot-boot-title { margin: 26px 0 0; font-size: 18px; font-weight: 650; }
+      .kanbot-boot-caption { margin: 8px 0 0; color: var(--boot-muted); font-size: 14px; }
+      .kanbot-boot-ar { display: none; }
+      :root[dir="rtl"] .kanbot-boot-en { display: none; }
+      :root[dir="rtl"] .kanbot-boot-ar { display: inline; }
+      .kanbot-boot-board {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
+        width: 240px;
+        margin-top: 28px;
+        border: 1px solid var(--boot-line);
+        border-radius: 16px;
+        background: color-mix(in srgb, var(--boot-panel) 84%, transparent);
+        padding: 12px;
+        box-shadow: 0 12px 32px rgb(0 0 0 / 8%);
+      }
+      .kanbot-boot-lane { display: flex; height: 72px; flex-direction: column; gap: 8px; border: 1px solid color-mix(in srgb, var(--boot-line) 78%, transparent); border-radius: 9px; background: color-mix(in srgb, var(--boot-page) 76%, transparent); padding: 8px; }
+      .kanbot-boot-lane i { width: 6px; height: 6px; border-radius: 50%; background: var(--boot-accent); }
+      .kanbot-boot-lane:nth-child(2) i { background: #38bdf8; }
+      .kanbot-boot-lane:nth-child(3) i { background: #34d399; }
+      .kanbot-boot-lane b, .kanbot-boot-lane em { display: block; height: 5px; border-radius: 999px; background: var(--boot-line); }
+      .kanbot-boot-lane em { width: 66%; opacity: .72; }
+      .kanbot-boot-task { position: absolute; top: 33px; left: 21px; width: 40px; height: 28px; border: 1px solid color-mix(in srgb, var(--boot-accent) 55%, var(--boot-line)); border-radius: 6px; background: var(--boot-panel); box-shadow: 0 4px 14px rgb(0 0 0 / 12%); animation: kanbot-boot-task 3.6s cubic-bezier(.45, 0, .55, 1) infinite; }
+      .kanbot-boot-task::before { position: absolute; top: 12px; left: 7px; width: 20px; height: 4px; border-radius: 999px; background: color-mix(in srgb, var(--boot-accent) 75%, transparent); content: ""; }
+      .kanbot-boot-task::after { position: absolute; top: 11px; right: 5px; width: 5px; height: 5px; border-radius: 50%; background: var(--boot-accent); content: ""; }
+      .kanbot-boot-progress { width: 144px; height: 4px; overflow: hidden; margin-top: 24px; border-radius: 999px; background: var(--boot-line); }
+      .kanbot-boot-progress span { display: block; width: 34%; height: 100%; border-radius: inherit; background: var(--boot-accent); animation: kanbot-boot-progress 2.2s ease-in-out infinite; }
+      @keyframes kanbot-boot-task {
+        0%, 8% { opacity: 1; transform: translateX(0); }
+        30%, 38% { opacity: 1; transform: translateX(75px); }
+        60%, 68% { opacity: 1; transform: translateX(150px); }
+        78% { opacity: 0; transform: translateX(150px); }
+        82% { opacity: 0; transform: translateX(0); }
+        100% { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes kanbot-boot-progress { 0% { transform: translateX(-110%); } 55% { transform: translateX(110%); } 100% { transform: translateX(330%); } }
+      @media (prefers-reduced-motion: reduce) {
+        .kanbot-boot-task, .kanbot-boot-progress span { animation: none; }
+        .kanbot-boot-task { left: calc(50% - 20px); }
+        .kanbot-boot-progress span { transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <main id="kanbot-boot" role="status" aria-live="polite" aria-busy="true">
+        <div class="kanbot-boot-content">
+          <div class="kanbot-boot-brand">
+            <img src="/logos/kanbot-icon.webp" width="44" height="44" alt="" />
+            <strong>Kanbot</strong>
+          </div>
+          <p class="kanbot-boot-title"><span class="kanbot-boot-en">Preparing your workspace…</span><span class="kanbot-boot-ar">جارٍ تجهيز مساحة العمل…</span></p>
+          <p class="kanbot-boot-caption"><span class="kanbot-boot-en">Loading Kanbot</span><span class="kanbot-boot-ar">جارٍ تحميل Kanbot</span></p>
+          <div class="kanbot-boot-board" aria-hidden="true">
+            <div class="kanbot-boot-lane"><i></i><b></b><em></em></div>
+            <div class="kanbot-boot-lane"><i></i><b></b><em></em></div>
+            <div class="kanbot-boot-lane"><i></i><b></b><em></em></div>
+            <div class="kanbot-boot-task"></div>
+          </div>
+          <div class="kanbot-boot-progress" aria-hidden="true"><span></span></div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
